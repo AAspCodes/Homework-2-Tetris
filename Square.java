@@ -102,6 +102,40 @@ public class Square {
 	public boolean canRotate(int r, int c) {
 		return true;
 	}
+	
+	public void rotate(int indexRow, int indexCol) {
+		if (indexRow < row) {
+			if (indexCol < col) {
+				col = indexCol - (col - indexCol);
+			} else if (indexCol > col) {
+				row = indexRow - (row - indexRow);
+			} else {
+				col = indexCol - (row - indexRow);
+				row = indexRow;
+			}
+		} else if (indexRow > row) {
+			if (indexCol < col) {
+				row = indexRow + (indexRow - row);
+			} else if (indexCol > col) {
+				col = indexCol + (indexCol - col);
+			} else {
+				col = indexCol + (indexRow - row);
+				row = indexRow;
+				
+			}
+		} else {
+			if (indexCol < col) {
+				row = indexRow + (col - indexCol);
+				col = indexCol;
+				
+			} else if (indexCol > col) {
+				row = indexRow - (indexCol - col);
+				col = indexCol;
+			}
+		}
+	}
+	
+	
 	/**
 	 * moves this square in the given direction if possible.
 	 * 
