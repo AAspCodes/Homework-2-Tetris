@@ -140,5 +140,11 @@ public class Game {
 		}
 
 	}
+	
+	public void rotatePiece() {
+		if (piece.canRotate()) {
+			piece.rotate();
+		}
+	}
 
 }

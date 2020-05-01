@@ -88,6 +88,7 @@ public class EventController extends KeyAdapter implements ActionListener {
 	}
 	
 	private void rotate() {
+		game.rotatePiece();
 	}
 	
 	
