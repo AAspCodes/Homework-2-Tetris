@@ -23,23 +23,23 @@ public class TShape extends AbstractPiece implements Piece {
 	 * Creates an L-Shape piece. See class description for actual location of r
 	 * and c
 	 * 
-	 * @param r
+	 * @param row
 	 *            row location for this piece
-	 * @param c
+	 * @param col
 	 *            column location for this piece
-	 * @param g
+	 * @param grid
 	 *            the grid for this game piece
 	 * 
 	 */
-	public TShape(int r, int c, Grid g) {
-		super(r, c, g);
+	public TShape(int row, int col, Grid grid) {
+		super(row, col, grid);
 		
 		
 		// Create the squares
-		square[0] = new Square(g, r - 1, c - 1, Color.magenta, true);
-		square[1] = new Square(g, r - 1, c, Color.magenta, true);
-		square[2] = new Square(g, r - 1, c + 1, Color.magenta, true);
-		square[3] = new Square(g, r, c, Color.magenta, true);
+		square[0] = new Square(grid, row - 1, col - 1, Color.magenta, true);
+		square[1] = new Square(grid, row - 1, col, Color.magenta, true);
+		square[2] = new Square(grid, row - 1, col + 1, Color.magenta, true);
+		square[3] = new Square(grid, row, col, Color.magenta, true);
 	}
 
 }

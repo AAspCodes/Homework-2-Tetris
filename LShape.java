@@ -23,23 +23,23 @@ public class LShape extends AbstractPiece implements Piece {
 	 * Creates an L-Shape piece. See class description for actual location of r
 	 * and c
 	 * 
-	 * @param r
+	 * @param row
 	 *            row location for this piece
-	 * @param c
+	 * @param col
 	 *            column location for this piece
-	 * @param g
+	 * @param grid
 	 *            the grid for this game piece
 	 * 
 	 */
-	public LShape(int r, int c, Grid g) {
-		super(r, c, g);
+	public LShape(int row, int col, Grid grid) {
+		super(row, col, grid);
 		
 		
 		// Create the squares
-		super.square[0] = new Square(g, r - 1, c, Color.orange, true);
-		super.square[1] = new Square(g, r, c, Color.orange, true);
-		super.square[2] = new Square(g, r + 1, c, Color.orange, true);
-		super.square[3] = new Square(g, r + 1, c + 1, Color.orange, true);
+		super.square[0] = new Square(grid, row - 1, col, Color.orange, true);
+		super.square[1] = new Square(grid, row, col, Color.orange, true);
+		super.square[2] = new Square(grid, row + 1, col, Color.orange, true);
+		super.square[3] = new Square(grid, row + 1, col + 1, Color.orange, true);
 	}
 
 }
