@@ -104,6 +104,10 @@ public class Square {
 	}
 	
 	public void rotate(int indexRow, int indexCol) {
+		// this is a messy if tree, There must be a way to simplify this.
+		// I will work on this again later, my brain needs to digest.
+		// feel free to improve this.
+		
 		if (indexRow < row) {
 			if (indexCol < col) {
 				col = indexCol - (col - indexCol);
