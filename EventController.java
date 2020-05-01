@@ -66,6 +66,7 @@ public class EventController extends KeyAdapter implements ActionListener {
 			case KeyEvent.VK_RIGHT:
 				handleMove(Direction.RIGHT);
 				break;
+			case KeyEvent.VK_UP:
 			}
 		}
 	}
