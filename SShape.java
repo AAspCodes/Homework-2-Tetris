@@ -36,10 +36,10 @@ public class SShape extends AbstractPiece implements Piece {
 		
 		
 		// Create the squares
-		square[0] = new Square(g, r - 1, c, Color.cyan, true);
-		square[1] = new Square(g, r - 1, c + 1, Color.cyan, true);
-		square[2] = new Square(g, r, c, Color.cyan, true);
-		square[3] = new Square(g, r, c - 1, Color.cyan, true);
+		square[0] = new Square(g, r - 1, c, Color.green, true);
+		square[1] = new Square(g, r - 1, c + 1, Color.green, true);
+		square[2] = new Square(g, r, c, Color.green, true);
+		square[3] = new Square(g, r, c - 1, Color.green, true);
 	}
 
 }

@@ -36,10 +36,10 @@ public class TShape extends AbstractPiece implements Piece {
 		
 		
 		// Create the squares
-		square[0] = new Square(g, r - 1, c - 1, Color.orange, true);
-		square[1] = new Square(g, r - 1, c, Color.orange, true);
-		square[2] = new Square(g, r - 1, c + 1, Color.orange, true);
-		square[3] = new Square(g, r, c, Color.orange, true);
+		square[0] = new Square(g, r - 1, c - 1, Color.magenta, true);
+		square[1] = new Square(g, r - 1, c, Color.magenta, true);
+		square[2] = new Square(g, r - 1, c + 1, Color.magenta, true);
+		square[3] = new Square(g, r, c, Color.magenta, true);
 	}
 
 }

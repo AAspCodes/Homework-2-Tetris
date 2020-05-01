@@ -36,10 +36,10 @@ public class LShape extends AbstractPiece implements Piece {
 		
 		
 		// Create the squares
-		super.square[0] = new Square(g, r - 1, c, Color.magenta, true);
-		super.square[1] = new Square(g, r, c, Color.magenta, true);
-		super.square[2] = new Square(g, r + 1, c, Color.magenta, true);
-		super.square[3] = new Square(g, r + 1, c + 1, Color.magenta, true);
+		super.square[0] = new Square(g, r - 1, c, Color.orange, true);
+		super.square[1] = new Square(g, r, c, Color.orange, true);
+		super.square[2] = new Square(g, r + 1, c, Color.orange, true);
+		super.square[3] = new Square(g, r + 1, c + 1, Color.orange, true);
 	}
 
 }
