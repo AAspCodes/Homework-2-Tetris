@@ -30,7 +30,7 @@ public class Game {
 	public Game(Tetris display) {
 		grid = new Grid();
 		this.display = display;
-		
+		updatePiece();
 		isOver = false;
 	}
 
@@ -126,6 +126,7 @@ public class Game {
 			}
 			
 		}
+
 
 		// set Grid positions corresponding to frozen piece
 		// and then release the piece

@@ -98,7 +98,10 @@ public class Square {
 		}
 		return move;
 	}
-
+	
+	public boolean canRotate(int r, int c) {
+		return true;
+	}
 	/**
 	 * moves this square in the given direction if possible.
 	 * 

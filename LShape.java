@@ -16,12 +16,8 @@ import java.awt.Point;
  * 
  * @author CSC 143
  */
-public class LShape extends AbstractPiece {
+public class LShape extends AbstractPiece implements Piece {
 
-	private Square[] square; // the squares that make up this piece
-
-	// number of squares in one Tetris game piece
-	private static final int PIECE_COUNT = 4;
 
 	/**
 	 * Creates an L-Shape piece. See class description for actual location of r
@@ -36,16 +32,14 @@ public class LShape extends AbstractPiece {
 	 * 
 	 */
 	public LShape(int r, int c, Grid g) {
+		super(r, c, g);
 		
-		grid = g;
-		square = new Square[PIECE_COUNT];
-		ableToMove = true;
 		
 		// Create the squares
-		square[0] = new Square(g, r - 1, c, Color.magenta, true);
-		square[1] = new Square(g, r, c, Color.magenta, true);
-		square[2] = new Square(g, r + 1, c, Color.magenta, true);
-		square[3] = new Square(g, r + 1, c + 1, Color.magenta, true);
+		super.square[0] = new Square(g, r - 1, c, Color.magenta, true);
+		super.square[1] = new Square(g, r, c, Color.magenta, true);
+		super.square[2] = new Square(g, r + 1, c, Color.magenta, true);
+		super.square[3] = new Square(g, r + 1, c + 1, Color.magenta, true);
 	}
 
 }

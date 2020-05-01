@@ -16,12 +16,8 @@ import java.awt.Point;
  * 
  * @author CSC 143
  */
-public class ZShape extends AbstractPiece {
+public class ZShape extends AbstractPiece implements Piece {
 
-	private Square[] square; // the squares that make up this piece
-
-	// number of squares in one Tetris game piece
-	private static final int PIECE_COUNT = 4;
 
 	/**
 	 * Creates an L-Shape piece. See class description for actual location of r
@@ -36,10 +32,8 @@ public class ZShape extends AbstractPiece {
 	 * 
 	 */
 	public ZShape(int r, int c, Grid g) {
-
-		grid = g;
-		square = new Square[PIECE_COUNT];
-		ableToMove = true;
+		super(r, c, g);
+		
 		
 		// Create the squares
 		square[0] = new Square(g, r - 1, c + 1, Color.cyan, true);
