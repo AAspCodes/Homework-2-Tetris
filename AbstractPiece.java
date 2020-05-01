@@ -114,7 +114,15 @@ public abstract class AbstractPiece {
 	}
 	
 	public void rotate() {
+		int indexRow, indexCol;
+		indexRow = square[1].getRow();
+		indexCol = square[1].getCol();
 		
+		for (int i = 0; i < square.length; i++) {
+			if (i != 1) {
+				square[i].rotate(indexRow,indexCol);
+			}
+		}
 	}
 	
 	abstract public boolean canRotate();
