@@ -44,8 +44,8 @@ public abstract class AbstractPiece {
 	/**
 	 * Draws the piece on the given Graphics context
 	 */
-	public AbstractPiece(int r, int c, Grid g) {
-		grid = g;
+	public AbstractPiece(int row, int col, Grid grid) {
+		this.grid = grid;
 		square = new Square[PIECE_COUNT];
 		ableToMove = true;
 		
