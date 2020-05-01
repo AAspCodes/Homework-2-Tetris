@@ -116,5 +116,7 @@ public abstract class AbstractPiece {
 	public void rotate() {
 		
 	}
+	
+	abstract public boolean canRotate();
 
 }

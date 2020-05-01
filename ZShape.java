@@ -41,5 +41,10 @@ public class ZShape extends AbstractPiece implements Piece {
 		square[2] = new Square(grid, row, col, Color.red, true);
 		square[3] = new Square(grid, row, col + 1, Color.red, true);
 	}
+	@Override
+	public boolean canRotate() {
+		return true;// temp return value
+	}
+	
 
 }

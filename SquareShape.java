@@ -41,5 +41,11 @@ public class SquareShape extends AbstractPiece implements Piece {
 		square[2] = new Square(grid, row, col, Color.yellow, true);
 		square[3] = new Square(grid, row, col + 1, Color.yellow, true);
 	}
+	
+	@Override
+	public boolean canRotate() {
+		// this shape will never rotate
+		return false;
+	}
 
 }

@@ -41,5 +41,11 @@ public class BarShape extends AbstractPiece implements Piece {
 		square[2] = new Square(grid, row + 1, col, Color.cyan, true);
 		square[3] = new Square(grid, row + 2, col, Color.cyan, true);
 	}
+	
+	@Override
+	public boolean canRotate() {
+		return true;// temp return value
+	}
+	
 
 }
