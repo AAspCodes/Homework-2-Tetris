@@ -30,7 +30,7 @@ public class Game {
 	public Game(Tetris display) {
 		grid = new Grid();
 		this.display = display;
-		
+		updatePiece();
 		isOver = false;
 	}
 
@@ -127,6 +127,7 @@ public class Game {
 			
 		}
 
+
 		// set Grid positions corresponding to frozen piece
 		// and then release the piece
 		else if (!piece.canMove(Direction.DOWN)) {
@@ -138,6 +139,12 @@ public class Game {
 			piece = null;
 		}
 
+	}
+	
+	public void rotatePiece() {
+		if (piece.canRotate()) {
+			piece.rotate();
+		}
 	}
 
 }

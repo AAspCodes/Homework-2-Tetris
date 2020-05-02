@@ -16,7 +16,7 @@ import java.awt.Point;
  * 
  * @author CSC 143
  */
-public  class AbstractPiece implements Piece {
+public abstract class AbstractPiece {
 	protected boolean ableToMove; // can this piece move
 
 	protected Square[] square; // the squares that make up this piece
@@ -44,6 +44,13 @@ public  class AbstractPiece implements Piece {
 	/**
 	 * Draws the piece on the given Graphics context
 	 */
+	public AbstractPiece(int row, int col, Grid grid) {
+		this.grid = grid;
+		square = new Square[PIECE_COUNT];
+		ableToMove = true;
+		
+		
+	}
 	public void draw(Graphics g) {
 		for (int i = 0; i < PIECE_COUNT; i++) {
 			square[i].draw(g);
@@ -107,7 +114,17 @@ public  class AbstractPiece implements Piece {
 	}
 	
 	public void rotate() {
+		int indexRow, indexCol;
+		indexRow = square[1].getRow();
+		indexCol = square[1].getCol();
 		
+		for (int i = 0; i < square.length; i++) {
+			if (i != 1) {
+				square[i].rotate(indexRow,indexCol);
+			}
+		}
 	}
+	
+	abstract public boolean canRotate();
 
 }

@@ -16,36 +16,35 @@ import java.awt.Point;
  * 
  * @author CSC 143
  */
-public class ZShape extends AbstractPiece {
+public class ZShape extends AbstractPiece implements Piece {
 
-	private Square[] square; // the squares that make up this piece
-
-	// number of squares in one Tetris game piece
-	private static final int PIECE_COUNT = 4;
 
 	/**
 	 * Creates an L-Shape piece. See class description for actual location of r
 	 * and c
 	 * 
-	 * @param r
+	 * @param row
 	 *            row location for this piece
-	 * @param c
+	 * @param col
 	 *            column location for this piece
-	 * @param g
+	 * @param grid
 	 *            the grid for this game piece
 	 * 
 	 */
-	public ZShape(int r, int c, Grid g) {
-
-		grid = g;
-		square = new Square[PIECE_COUNT];
-		ableToMove = true;
+	public ZShape(int row, int col, Grid grid) {
+		super(row, col, grid);
+		
 		
 		// Create the squares
-		square[0] = new Square(g, r - 1, c + 1, Color.cyan, true);
-		square[1] = new Square(g, r - 1, c, Color.cyan, true);
-		square[2] = new Square(g, r, c, Color.cyan, true);
-		square[3] = new Square(g, r, c + 1, Color.cyan, true);
+		square[0] = new Square(grid, row - 1, col - 1, Color.red, true);
+		square[1] = new Square(grid, row - 1, col, Color.red, true);
+		square[2] = new Square(grid, row, col, Color.red, true);
+		square[3] = new Square(grid, row, col + 1, Color.red, true);
 	}
+	@Override
+	public boolean canRotate() {
+		return true;// temp return value
+	}
+	
 
 }
