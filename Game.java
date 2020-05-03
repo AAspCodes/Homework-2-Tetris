@@ -143,7 +143,7 @@ public class Game {
 	}
 	
 	public void rotatePiece() {
-		if (piece != null && piece.canRotate()) {
+		if (piece != null) {
 			piece.rotate();
 		}
 	}
