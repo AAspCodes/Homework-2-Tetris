@@ -42,10 +42,6 @@ public class JShape extends AbstractPiece implements Piece {
 		square[3] = new Square(grid, row + 1, col + 1, Color.blue, true);
 	}
 	
-	@Override
-	public boolean canRotate() {
-		return true;// temp return value
-	}
 
 
 }

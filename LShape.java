@@ -41,10 +41,6 @@ public class LShape extends AbstractPiece implements Piece {
 		super.square[2] = new Square(grid, row + 1, col, Color.orange, true);
 		super.square[3] = new Square(grid, row + 1, col + 1, Color.orange, true);
 	}
-	
-	@Override
-	public boolean canRotate() {
-		return true;// temp return value
-	}
+
 
 }
