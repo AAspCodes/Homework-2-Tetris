@@ -204,5 +204,195 @@ public class TetrisUnitTest {
 		grid.set(row, col, Color.BLACK);
 		return piece.canMove(dir);
 	}
+	
+	
+	@Test
+	public void testBarShape() {
+		Grid grid = new Grid();
+		AbstractPiece piece = new BarShape(1, 0, grid);
+		
+		// put in location it can't rotate because of the wall, test rotation.
+		checkDidNotRotate(piece);
+
+		// put in location it can rotate, test rotation, 
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.RIGHT);
+		}
+		Point[] correctLoc = new Point[] {new Point(1,5), new Point(1,4),new Point(1,3),new Point(1,2)};
+		checkDidRotate(piece, correctLoc);
+		
+
+		// put piece in place where it can't rotate because of set Square in the grid
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+		grid.set(3,3,Color.RED);
+		checkDidNotRotate(piece);
+
+	}
+	
+	
+	@Test
+	public void testJShape() {
+		Grid grid = new Grid();
+		AbstractPiece piece = new JShape(1, 8, grid);
+		
+		// put in location it can't rotate because of the wall, test rotation.
+		checkDidNotRotate(piece);
+
+		
+		// put in location it can rotate, test rotation, 
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.LEFT);
+		}
+
+		
+		Point[] correctLoc = new Point[] {new Point(1,6), new Point(1,5),new Point(1,4),new Point(0,4)};
+		checkDidRotate(piece, correctLoc);
+		
+		
+		// put piece in place where it can't rotate because of set Square in the grid
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+
+		grid.set(6,5,Color.RED);
+		checkDidNotRotate(piece);
+	}
+	
+	
+	
+	
+	@Test
+	public void testLShape() {
+		Grid grid = new Grid();
+		AbstractPiece piece = new LShape(1, 0, grid);
+		
+		// put in location it can't rotate because of the wall, test rotation.
+		checkDidNotRotate(piece);
+
+		
+		// put in location it can rotate, test rotation, 
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.RIGHT);
+		}
+		
+		Point[] correctLoc = new Point[] {new Point(1,5), new Point(1,4),new Point(1,3),new Point(2,3)};
+		checkDidRotate(piece, correctLoc);
+		
+		
+		// put piece in place where it can't rotate because of set Square in the grid
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+		grid.set(4,3,Color.RED);
+		checkDidNotRotate(piece);
+
+	}
+	
+	
+	@Test
+	public void testSquareShape() {
+		Grid grid = new Grid();
+		AbstractPiece piece = new SquareShape(10,5, grid);
+		// Square can never rotate
+		checkDidNotRotate(piece);
+	}
+	
+	
+	@Test
+	public void testSShape() {
+		Grid grid = new Grid();
+		AbstractPiece piece = new SShape(1, 4, grid);
+		
+		// put in location it can't rotate because of the wall, test rotation.
+		checkDidNotRotate(piece);
+
+		
+		// put in location it can rotate, test rotation, 
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+		Point[] correctLoc = new Point[] {new Point(5,4), new Point(4,4),new Point(4,3),new Point(3,3)};
+		checkDidRotate(piece, correctLoc);
+		
+		
+		// put piece in place where it can't rotate because of set Square in the grid
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+		grid.set(7,4,Color.RED);
+		checkDidNotRotate(piece);
+
+	}
+	
+	@Test
+	public void testZShape() {
+		Grid grid = new Grid();
+		AbstractPiece piece = new ZShape(1, 4, grid);
+		
+		// put in location it can't rotate because of the wall, test rotation.
+		checkDidNotRotate(piece);
+
+		
+		// put in location it can rotate, test rotation, 
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+		
+		Point[] correctLoc = new Point[] {new Point(3,4), new Point(4,4),new Point(4,3),new Point(5,3)};
+		checkDidRotate(piece, correctLoc);
+		
+		// put piece in place where it can't rotate because of set Square in the grid
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+
+		grid.set(8,5,Color.RED);
+		checkDidNotRotate(piece);
+	}
+	
+	@Test
+	public void testTShape() {
+		Grid grid = new Grid();
+		AbstractPiece piece = new TShape(1, 4, grid);
+		
+		// put in location it can't rotate because of the wall, test rotation.
+		checkDidNotRotate(piece);
+
+		
+		// put in location it can rotate, test rotation, 
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+		
+
+		Point[] correctLoc = new Point[] {new Point(3,4), new Point(4,4),new Point(5,4),new Point(4,3)};
+		checkDidRotate(piece, correctLoc);
+		
+		
+		// put piece in place where it can't rotate because of set Square in the grid
+		for (int i = 0; i < 4; i++) {
+			piece.move(Direction.DOWN);
+		}
+
+		grid.set(8,5,Color.RED);
+		checkDidNotRotate(piece);
+
+	}
+	
+	private void checkDidNotRotate(AbstractPiece piece) {
+		Point[] points = piece.getLocations();
+		piece.rotate();
+		assertTrue(checkSame(points, piece.getLocations()));
+	}
+	
+	private void checkDidRotate(AbstractPiece piece, Point[] correctLoc) {
+		Point[] points = piece.getLocations();
+		piece.rotate();	
+		assertFalse(checkSame(points, piece.getLocations()));
+		assertTrue(checkSame(correctLoc, piece.getLocations()));
+	}
+	
 
 }
