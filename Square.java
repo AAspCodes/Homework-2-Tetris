@@ -145,8 +145,8 @@ public class Square {
 			startCol = travCol;
 			endCol = newCol;
 		} else if (travCol > newCol) {
-			startCol = newCol;
-			endCol = travCol;
+			startCol = newCol - 1;
+			endCol = travCol - 1;
 		} else {
 			// they're equal and there is no need to traverse
 			return clear;
@@ -176,8 +176,8 @@ public class Square {
 			startRow = travRow;
 			endRow = newRow;
 		} else if (travRow > newRow) {
-			startRow = newRow;
-			endRow = travRow;
+			startRow = newRow-1;
+			endRow = travRow - 1;
 		} else {
 			// they're equal and there is no need to traverse
 			return clear;
