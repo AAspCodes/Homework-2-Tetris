@@ -60,8 +60,9 @@ public class Game {
 				while (piece.canMove(Direction.DOWN)) {
 					piece.move(Direction.DOWN);					
 				}
+			} else {
+				piece.move(direction);
 			}
-			piece.move(direction);
 		}
 		updatePiece();
 		display.update();
