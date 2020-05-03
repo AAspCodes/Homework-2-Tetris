@@ -98,15 +98,101 @@ public class Square {
 		}
 		return move;
 	}
-	
-	public boolean canRotate(int r, int c) {
+		
+	public boolean canRotate(int indexRow, int indexCol) {
+		int[] offsets = computeOffsets(indexRow, indexCol);
+		int rowOffset = offsets[0];
+		int colOffset = offsets[1];
+		
+		int[] newPositions = computeNewPosition(offsets, indexRow, indexCol);
+		int newRow = newPositions[0];
+		int newCol = newPositions[1];
+		
+		
+		// check if within bounds
+		if (newRow >= grid.HEIGHT || newRow < 0) {
+			return false;
+		}
+		if (newCol >= grid.WIDTH || newCol < 0) {
+			return false;
+		}
+		
+		int[] traversialPos = new int[] {row,col};
+		
+		if (Math.abs(rowOffset) > Math.abs(colOffset)) {
+			if (!traverseHorizontal(traversialPos, newRow, newCol)|| !traverseVertical(traversialPos, newRow, newCol)) {
+				return false;
+			} 
+
+		} else {
+			if (!traverseVertical(traversialPos, newRow, newCol) || !traverseHorizontal(traversialPos, newRow, newCol)) {
+				return false;
+			} 
+		}
+		
 		return true;
+
 	}
 	
-			}
+	private boolean traverseHorizontal(int[] traversialPos, int newRow, int newCol) {
+		int travRow = traversialPos[0];
+		int travCol = traversialPos[1];
+		boolean clear = true;
+		
+		int startCol, endCol;
+		// must start while loop with the smaller of the two numbers....
+		if (travCol < newCol) {
+			startCol = travCol;
+			endCol = newCol;
+		} else if (travCol > newCol) {
+			startCol = newCol;
+			endCol = travCol;
 		} else {
+			// they're equal and there is no need to traverse
+			return clear;
+		}
+		
+		while (startCol < endCol) {
+			startCol++;
+			if (grid.isSet(travRow, startCol)) {
+				clear = false;
+				break;
 			}
 		}
+		
+		traversialPos[1] = newCol;
+		return clear;
+		
+	}
+	
+	private boolean traverseVertical(int[] traversialPos, int newRow, int newCol) {
+		int travRow = traversialPos[0];
+		int travCol = traversialPos[1];
+		boolean clear = true;
+		
+		int startRow, endRow;
+		// must start while loop with the smaller of the two numbers....
+		if (travRow < newRow) {
+			startRow = travRow;
+			endRow = newRow;
+		} else if (travRow > newRow) {
+			startRow = newRow;
+			endRow = travRow;
+		} else {
+			// they're equal and there is no need to traverse
+			return clear;
+		}
+		
+		while (startRow < endRow) {
+			startRow++;
+			if (grid.isSet(startRow, travCol)) {
+				clear = false;
+				break;
+			}
+		}
+		
+		traversialPos[0] = newRow;
+		return clear;
 	}
 	
 	public void rotate(int indexRow, int indexCol) {
