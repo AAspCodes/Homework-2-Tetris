@@ -204,7 +204,7 @@ public class Square {
 	
 	
 	private int[] computeOffsets(int indexRow, int indexCol) {
-		return new int[] {indexRow - row, indexCol - col};
+		return new int[] {row - indexRow, col - indexCol};
 	}
 	
 	
@@ -213,8 +213,8 @@ public class Square {
 		int rowOffset = offsets[0];
 		int colOffset = offsets[1];
 		
-		int newCol = indexCol + rowOffset;
-		int newRow = indexRow - colOffset;
+		int newCol = indexCol - rowOffset;
+		int newRow = indexRow + colOffset;
 		return new int[] {newRow, newCol};
 	}
 	
