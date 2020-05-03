@@ -125,6 +125,19 @@ public abstract class AbstractPiece {
 		}
 	}
 	
-	abstract public boolean canRotate();
+	public boolean canRotate() {
+		int indexRow, indexCol;
+		indexRow = square[1].getRow();
+		indexCol = square[1].getCol();
+		
+		for (int i = 0; i < square.length; i++) {
+			if (i != 1) {
+				if (!square[i].canRotate(indexRow,indexCol)){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 }
