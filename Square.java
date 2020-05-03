@@ -103,41 +103,36 @@ public class Square {
 		return true;
 	}
 	
-	public void rotate(int indexRow, int indexCol) {
-		// this is a messy if tree, There must be a way to simplify this.
-		// I will work on this again later, my brain needs to digest.
-		// feel free to improve this.
-		
-		if (indexRow < row) {
-			if (indexCol < col) {
-				col = indexCol - (col - indexCol);
-			} else if (indexCol > col) {
-				row = indexRow - (row - indexRow);
-			} else {
-				col = indexCol - (row - indexRow);
-				row = indexRow;
-			}
-		} else if (indexRow > row) {
-			if (indexCol < col) {
-				row = indexRow + (indexRow - row);
-			} else if (indexCol > col) {
-				col = indexCol + (indexCol - col);
-			} else {
-				col = indexCol + (indexRow - row);
-				row = indexRow;
-				
 			}
 		} else {
-			if (indexCol < col) {
-				row = indexRow + (col - indexCol);
-				col = indexCol;
-				
-			} else if (indexCol > col) {
-				row = indexRow - (indexCol - col);
-				col = indexCol;
 			}
 		}
 	}
+	
+	public void rotate(int indexRow, int indexCol) {
+		int[] offsets = computeOffsets(indexRow, indexCol);
+		int[] newPositions = computeNewPosition(offsets, indexRow, indexCol);
+		row = newPositions[0];
+		col = newPositions[1];
+	}
+	
+	
+	private int[] computeOffsets(int indexRow, int indexCol) {
+		return new int[] {indexRow - row, indexCol - col};
+	}
+	
+	
+	private int[] computeNewPosition(int[] offsets, int indexRow, int indexCol) {
+		
+		int rowOffset = offsets[0];
+		int colOffset = offsets[1];
+		
+		int newCol = indexCol + rowOffset;
+		int newRow = indexRow - colOffset;
+		return new int[] {newRow, newCol};
+	}
+	
+
 	
 	
 	/**
