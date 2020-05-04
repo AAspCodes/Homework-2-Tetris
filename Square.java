@@ -98,7 +98,17 @@ public class Square {
 		}
 		return move;
 	}
-		
+	
+	/**
+	 * Returns true if this Sqaure can rotate 90 degrees,
+	 * its position after rotation must not be set.
+	 * the path to that position must also not have any set Squares.
+	 * 
+	 * 
+	 * @param indexRow the row of the Index Square that is the point of rotation.
+	 * @param indexCol the column of the Index Square that is the point of rotation
+	 * @return boolean
+	 */
 	public boolean canRotate(int indexRow, int indexCol) {
 		int[] offsets = computeOffsets(indexRow, indexCol);
 		int rowOffset = offsets[0];
@@ -133,7 +143,14 @@ public class Square {
 		return true;
 
 	}
-	
+	/**
+	 * Check each square of the grid moving horizontally between
+	 *  the starting column and the column of the position after rotation.
+	 * @param traversialPos: the current row and column of the traversal.
+	 * @param newRow: The row of the new position.
+	 * @param newCol: The column of the new position.
+	 * @return boolean
+	 */
 	private boolean traverseHorizontal(int[] traversialPos, int newRow, int newCol) {
 		int travRow = traversialPos[0];
 		int travCol = traversialPos[1];
@@ -165,6 +182,15 @@ public class Square {
 		
 	}
 	
+	
+	/**
+	 * Check each square of the grid moving vertically between
+	 *  the starting row and the row of the position after rotation.
+	 * @param traversialPos: the current row and column of the traversal.
+	 * @param newRow: The row of the new position.
+	 * @param newCol: The column of the new position.
+	 * @return boolean
+	 */
 	private boolean traverseVertical(int[] traversialPos, int newRow, int newCol) {
 		int travRow = traversialPos[0];
 		int travCol = traversialPos[1];
@@ -202,12 +228,27 @@ public class Square {
 		col = newPositions[1];
 	}
 	
-	
+	/**
+	 * Compute the difference between this sqaure's current position
+	 *  and the index position.
+	 * @param indexRow: 
+	 * @param indexCol
+	 * @return array of integers, if the index was the origin of a Cartesian plane,
+	 *  this would be this sqaure's x,y coordinates.
+	 */
 	private int[] computeOffsets(int indexRow, int indexCol) {
 		return new int[] {row - indexRow, col - indexCol};
 	}
 	
-	
+	/**
+	 * Compute new position after a 90 degree rotation about the index.
+	 * 
+	 * @param offsets
+	 * @param indexRow
+	 * @param indexCol
+	 * @return array of integers representing the new position this square
+	 *  would be in after a 90 degree rotation about the axis.
+	 */
 	private int[] computeNewPosition(int[] offsets, int indexRow, int indexCol) {
 		
 		int rowOffset = offsets[0];
