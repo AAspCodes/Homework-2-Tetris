@@ -68,6 +68,7 @@ public class EventController extends KeyAdapter implements ActionListener {
 				break;
 			case KeyEvent.VK_UP:
 				rotate();
+				break;
 			}
 		}
 	}
@@ -89,6 +90,9 @@ public class EventController extends KeyAdapter implements ActionListener {
 	
 	private void rotate() {
 		game.rotatePiece();
+		gameOver = game.isGameOver();
+		if (gameOver)
+			timer.stop();
 	}
 	
 	
