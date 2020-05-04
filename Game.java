@@ -148,6 +148,9 @@ public class Game {
 		if (piece != null) {
 			piece.rotate();
 		}
+		updatePiece();
+		display.update();
+		grid.checkRows();
 	}
 
 }
