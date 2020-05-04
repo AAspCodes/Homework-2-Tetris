@@ -114,7 +114,7 @@ public abstract class AbstractPiece {
 	}
 	
 	/**
-	 * Rotate the piece if it can rotate
+	 * Rotate this piece if it can rotate
 	 */
 	
 	public void rotate() {
@@ -133,7 +133,7 @@ public abstract class AbstractPiece {
 	
 	
 	/**
-	 * Check if the piece can rotate.
+	 * Check if this piece can rotate.
 	 * @return boolean
 	 * 
 	 *	
