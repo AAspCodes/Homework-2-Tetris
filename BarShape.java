@@ -36,10 +36,10 @@ public class BarShape extends AbstractPiece implements Piece {
 		
 		
 		// Create the squares
-		square[0] = new Square(grid, row - 1, col, Color.cyan, true);
+		square[0] = new Square(grid, row, col - 1, Color.cyan, true);
 		square[1] = new Square(grid, row, col, Color.cyan, true);
-		square[2] = new Square(grid, row + 1, col, Color.cyan, true);
-		square[3] = new Square(grid, row + 2, col, Color.cyan, true);
+		square[2] = new Square(grid, row, col + 1, Color.cyan, true);
+		square[3] = new Square(grid, row, col + 2, Color.cyan, true);
 	}
 
 
