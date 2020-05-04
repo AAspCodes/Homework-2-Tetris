@@ -208,23 +208,21 @@ public class TetrisUnitTest {
 	@Test
 	public void testBarShape() {
 		Grid grid = new Grid();
-		AbstractPiece piece = new BarShape(1, 0, grid);
+		AbstractPiece piece = new BarShape(0, 5, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
 
 		// put in location it can rotate, test rotation,
 		for (int i = 0; i < 4; i++) {
-			piece.move(Direction.RIGHT);
+			piece.move(Direction.DOWN);
 		}
-		Point[] correctLoc = new Point[] { new Point(1, 5), new Point(1, 4), new Point(1, 3), new Point(1, 2) };
+		Point[] correctLoc = new Point[] { new Point(3, 5), new Point(4, 5), new Point(5, 5), new Point(6, 5) };
 		checkDidRotate(piece, correctLoc);
 
 		// put piece in place where it can't rotate because of set Square in the grid
-		for (int i = 0; i < 4; i++) {
-			piece.move(Direction.DOWN);
-		}
-		grid.set(3, 3, Color.RED);
+
+		grid.set(3, 6, Color.RED);
 		checkDidNotRotate(piece);
 
 	}
