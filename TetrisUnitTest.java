@@ -230,7 +230,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testJShape() {
 		Grid grid = new Grid();
-		Piece piece = new JShape(1, 8, grid);
+		Piece piece = new JShape(1, 9, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -288,7 +288,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testSShape() {
 		Grid grid = new Grid();
-		Piece piece = new SShape(1, 4, grid);
+		Piece piece = new SShape(0, 4, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -312,7 +312,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testZShape() {
 		Grid grid = new Grid();
-		Piece piece = new ZShape(1, 4, grid);
+		Piece piece = new ZShape(0, 4, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -337,7 +337,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testTShape() {
 		Grid grid = new Grid();
-		Piece piece = new TShape(1, 4, grid);
+		Piece piece = new TShape(0, 4, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
