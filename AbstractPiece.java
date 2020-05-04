@@ -113,6 +113,10 @@ public abstract class AbstractPiece {
 		return answer;
 	}
 	
+	/**
+	 * Rotate the piece if it can rotate
+	 */
+	
 	public void rotate() {
 		if (canRotate()) {
 			int indexRow, indexCol;
@@ -127,6 +131,13 @@ public abstract class AbstractPiece {
 		}
 	}
 	
+	
+	/**
+	 * Check if the piece can rotate.
+	 * @return boolean
+	 * 
+	 *	
+	 */
 	public boolean canRotate() {
 		int indexRow, indexCol;
 		indexRow = square[1].getRow();
