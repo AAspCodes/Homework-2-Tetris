@@ -168,7 +168,7 @@ public class TetrisUnitTest {
 
 	private boolean wallTest(Direction dir, int safeMoves) {
 		Grid grid = new Grid();
-		LShape piece = new LShape(1, Grid.WIDTH / 2 - 1, grid);
+		Piece piece = new LShape(1, Grid.WIDTH / 2 - 1, grid);
 
 		for (int i = 0; i < safeMoves; i++) {
 			if (piece.canMove(dir)) {
@@ -198,7 +198,7 @@ public class TetrisUnitTest {
 
 	private boolean setTest(Direction dir, int row, int col) {
 		Grid grid = new Grid();
-		LShape piece = new LShape(1, Grid.WIDTH / 2 - 1, grid);
+		Piece piece = new LShape(1, Grid.WIDTH / 2 - 1, grid);
 
 		// set square right next to the piece
 		grid.set(row, col, Color.BLACK);
@@ -208,7 +208,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testBarShape() {
 		Grid grid = new Grid();
-		AbstractPiece piece = new BarShape(0, 5, grid);
+		Piece piece = new BarShape(0, 5, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -230,7 +230,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testJShape() {
 		Grid grid = new Grid();
-		AbstractPiece piece = new JShape(1, 8, grid);
+		Piece piece = new JShape(1, 8, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -255,7 +255,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testLShape() {
 		Grid grid = new Grid();
-		AbstractPiece piece = new LShape(1, 0, grid);
+		Piece piece = new LShape(1, 0, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -280,7 +280,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testSquareShape() {
 		Grid grid = new Grid();
-		AbstractPiece piece = new SquareShape(10, 5, grid);
+		Piece piece = new SquareShape(10, 5, grid);
 		// Square can never rotate
 		checkDidNotRotate(piece);
 	}
@@ -288,7 +288,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testSShape() {
 		Grid grid = new Grid();
-		AbstractPiece piece = new SShape(1, 4, grid);
+		Piece piece = new SShape(1, 4, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -312,7 +312,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testZShape() {
 		Grid grid = new Grid();
-		AbstractPiece piece = new ZShape(1, 4, grid);
+		Piece piece = new ZShape(1, 4, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -337,7 +337,7 @@ public class TetrisUnitTest {
 	@Test
 	public void testTShape() {
 		Grid grid = new Grid();
-		AbstractPiece piece = new TShape(1, 4, grid);
+		Piece piece = new TShape(1, 4, grid);
 
 		// put in location it can't rotate because of the wall, test rotation.
 		checkDidNotRotate(piece);
@@ -360,13 +360,13 @@ public class TetrisUnitTest {
 
 	}
 
-	private void checkDidNotRotate(AbstractPiece piece) {
+	private void checkDidNotRotate(Piece piece) {
 		Point[] points = piece.getLocations();
 		piece.rotate();
 		assertTrue(checkSame(points, piece.getLocations()));
 	}
 
-	private void checkDidRotate(AbstractPiece piece, Point[] correctLoc) {
+	private void checkDidRotate(Piece piece, Point[] correctLoc) {
 		Point[] points = piece.getLocations();
 		piece.rotate();
 		assertFalse(checkSame(points, piece.getLocations()));
