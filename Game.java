@@ -60,8 +60,9 @@ public class Game {
 				while (piece.canMove(Direction.DOWN)) {
 					piece.move(Direction.DOWN);					
 				}
+			} else {
+				piece.move(direction);
 			}
-			piece.move(direction);
 		}
 		updatePiece();
 		display.update();
@@ -142,7 +143,7 @@ public class Game {
 	}
 	
 	public void rotatePiece() {
-		if (piece.canRotate()) {
+		if (piece != null) {
 			piece.rotate();
 		}
 	}

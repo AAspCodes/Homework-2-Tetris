@@ -42,9 +42,4 @@ public class SShape extends AbstractPiece implements Piece {
 		square[3] = new Square(grid, row, col - 1, Color.green, true);
 	}
 	
-	@Override
-	public boolean canRotate() {
-		return true;// temp return value
-	}
-	
 }

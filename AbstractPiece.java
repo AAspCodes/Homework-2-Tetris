@@ -114,17 +114,32 @@ public abstract class AbstractPiece {
 	}
 	
 	public void rotate() {
+		if (canRotate()) {
+			int indexRow, indexCol;
+			indexRow = square[1].getRow();
+			indexCol = square[1].getCol();
+			
+			for (int i = 0; i < square.length; i++) {
+				if (i != 1) {
+					square[i].rotate(indexRow,indexCol);
+				}
+			}
+		}
+	}
+	
+	public boolean canRotate() {
 		int indexRow, indexCol;
 		indexRow = square[1].getRow();
 		indexCol = square[1].getCol();
 		
 		for (int i = 0; i < square.length; i++) {
 			if (i != 1) {
-				square[i].rotate(indexRow,indexCol);
+				if (!square[i].canRotate(indexRow,indexCol)){
+					return false;
+				}
 			}
 		}
+		return true;
 	}
-	
-	abstract public boolean canRotate();
 
 }
