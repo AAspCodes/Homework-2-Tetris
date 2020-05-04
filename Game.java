@@ -141,7 +141,9 @@ public class Game {
 		}
 
 	}
-	
+	/** 
+	 * Rotate the piece Clockwise 90 degrees, if it can.
+	 */
 	public void rotatePiece() {
 		if (piece != null) {
 			piece.rotate();
